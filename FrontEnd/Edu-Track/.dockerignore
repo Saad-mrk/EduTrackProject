@@ -1,0 +1,7 @@
+node_modules
+.output
+.git
+.gitignore
+*.log
+.env
+.env.*

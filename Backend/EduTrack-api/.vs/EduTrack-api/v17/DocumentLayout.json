@@ -1,0 +1,37 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\USER\\Desktop\\DEVops\\Backend\\EduTrack-api\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{F568CA26-5E31-47BE-A11D-86B83CB55EBE}|EduTrack-api\\EduTrack-api.csproj|c:\\users\\user\\desktop\\devops\\backend\\edutrack-api\\edutrack-api\\dockerfile||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{F568CA26-5E31-47BE-A11D-86B83CB55EBE}|EduTrack-api\\EduTrack-api.csproj|solutionrelative:edutrack-api\\dockerfile||{8B382828-6202-11D1-8870-0000F87579D2}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 1,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedHeight": 288,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Dockerfile",
+              "DocumentMoniker": "C:\\Users\\USER\\Desktop\\DEVops\\Backend\\EduTrack-api\\EduTrack-api\\Dockerfile",
+              "RelativeDocumentMoniker": "EduTrack-api\\Dockerfile",
+              "ToolTip": "C:\\Users\\USER\\Desktop\\DEVops\\Backend\\EduTrack-api\\EduTrack-api\\Dockerfile",
+              "RelativeToolTip": "EduTrack-api\\Dockerfile",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB0AAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2026-11-02T17:47:56.192Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

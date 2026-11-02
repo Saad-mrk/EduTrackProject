@@ -1,0 +1,21 @@
+name: edutrack
+
+services:
+  backend:
+    build:
+      context: ../Backend/EduTrack-api
+      dockerfile: EduTrack-api/Dockerfile
+    image: edutrack-api:${TAG:-latest}
+    container_name: edutrack-api
+    restart: unless-stopped
+    environment:
+      ASPNETCORE_ENVIRONMENT: ${ASPNETCORE_ENVIRONMENT:-Development}
+      ASPNETCORE_HTTP_PORTS: ${BACKEND_PORT:-8080}
+      ConnectionStrings__DefaultConnection: ${CONNECTION_STRING}
+    ports:
+      - "${BACKEND_PORT:-8080}:${BACKEND_PORT:-8080}"
+    depends_on:
+      postgres:
+        condition: service_healthy
+    networks:
+      - edutrack

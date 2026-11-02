@@ -30,6 +30,25 @@ DEVops/
 - [Change logs](./Docs/Change%20logs/README.md)
 - [Database](./Docs/Database/README.md)
 - [WorkFlows](./Docs/WorkFlows/README.md)
+- [Observability](./Docs/Observability/README.md)
+
+## Prerequisites
+
+The local stack is orchestrated with Docker Compose and driven by a Makefile.
+Both are required:
+
+- Docker Engine with the Compose plugin (v2+)
+- GNU Make
+
+Verify they are installed:
+
+```sh
+docker compose version
+make --version
+```
+
+Start the full stack with `make -C infrastructure/runner up`, and stop it with
+`make -C infrastructure/runner down`.
 
 ## Getting Started
 
