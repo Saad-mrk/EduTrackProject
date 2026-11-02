@@ -7,7 +7,6 @@ documentation.
 ## Repository Structure
 
 ```
-DEVops/
 ├── Backend/          Backend application and API
 ├── FrontEnd/         Frontend application
 ├── Nginix/           Nginx / reverse-proxy configuration
