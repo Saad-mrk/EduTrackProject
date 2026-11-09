@@ -1,0 +1,28 @@
+# Environment files (secrets)
+.env
+*.env
+*.env.local
+*.env.*.local
+infrastructure/.env
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Build artifacts
+node_modules
+dist
+dist-ssr
+.output
+.bin
+
+# Logs
+*.log
+logs/
