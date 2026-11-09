@@ -1,24 +1,52 @@
-COMPOSE_FILES = -f ../docker-compose.network.yml -f ../docker-compose.volumes.yml -f ../docker-compose.db.yml -f ../docker-compose.api.yml -f ../docker-compose.web.yml -f ../docker-compose.prometheus.yml -f ../docker-compose.seq.yml -f ../docker-compose.grafana.yml -f ../docker-compose.otel.yml
-COMPOSE = docker compose --env-file ../.env $(COMPOSE_FILES)
+BASE_COMPOSE_FILES = -f ../docker-compose.network.yml -f ../docker-compose.volumes.yml -f ../docker-compose.db.yml -f ../docker-compose.api.yml -f ../docker-compose.web.yml -f ../docker-compose.prometheus.yml -f ../docker-compose.seq.yml -f ../docker-compose.grafana.yml -f ../docker-compose.otel.yml
 
-.PHONY: up down restart logs ps build clean
+LOCAL_COMPOSE_FILES = $(BASE_COMPOSE_FILES) -f ../docker-compose.nginx.local.yml
+PROD_COMPOSE_FILES = $(BASE_COMPOSE_FILES) -f ../docker-compose.nginx.prod.yml
 
-up:
-	$(COMPOSE) up -d --build
+LOCAL_COMPOSE = docker compose --env-file ../.env $(LOCAL_COMPOSE_FILES)
+PROD_COMPOSE = docker compose --env-file ../.env $(PROD_COMPOSE_FILES)
 
-down:
-	$(COMPOSE) down
+.PHONY: up-local down-local restart-local logs-local ps-local build-local clean-local \
+        up-prod down-prod restart-prod logs-prod ps-prod build-prod clean-prod
 
-restart: down up
+# --- Local ---
+up-local:
+	$(LOCAL_COMPOSE) up -d --build
 
-logs:
-	$(COMPOSE) logs -f
+down-local:
+	$(LOCAL_COMPOSE) down
 
-ps:
-	$(COMPOSE) ps
+restart-local: down-local up-local
 
-build:
-	$(COMPOSE) build
+logs-local:
+	$(LOCAL_COMPOSE) logs -f
 
-clean:
-	$(COMPOSE) down -v --remove-orphans
+ps-local:
+	$(LOCAL_COMPOSE) ps
+
+build-local:
+	$(LOCAL_COMPOSE) build
+
+clean-local:
+	$(LOCAL_COMPOSE) down -v --remove-orphans
+
+# --- Production ---
+up-prod:
+	$(PROD_COMPOSE) up -d --build
+
+down-prod:
+	$(PROD_COMPOSE) down
+
+restart-prod: down-prod up-prod
+
+logs-prod:
+	$(PROD_COMPOSE) logs -f
+
+ps-prod:
+	$(PROD_COMPOSE) ps
+
+build-prod:
+	$(PROD_COMPOSE) build
+
+clean-prod:
+	$(PROD_COMPOSE) down -v --remove-orphans
