@@ -209,7 +209,6 @@ export function buildSeed(): DB {
         );
       });
     });
-  });
   const absences: Absence[] = [];
   const statuses: AbsStatus[] = ["justifiée", "non justifiée", "non justifiée", "en attente"];
   for (let i = 1; i <= 150; i++) {
