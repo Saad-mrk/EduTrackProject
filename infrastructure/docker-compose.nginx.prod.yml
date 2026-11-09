@@ -1,0 +1,18 @@
+name: edutrack
+
+services:
+  nginx:
+    image: nginx:alpine
+    container_name: edutrack-nginx
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./Nginix/nginx.prod.conf:/etc/nginx/nginx.conf:ro
+      - ${HOME}/nginx/certs:/etc/nginx/certs:ro
+    depends_on:
+      - backend
+      - frontend
+    networks:
+      - edutrack

@@ -1,0 +1,16 @@
+name: edutrack
+
+services:
+  seq:
+    image: datalust/seq:latest
+    container_name: edutrack-seq
+    restart: unless-stopped
+    environment:
+      ACCEPT_EULA: "Y"
+    volumes:
+      - seq_data:/data
+    ports:
+      - "${SEQ_UI_PORT:-8081}:80"
+      - "${SEQ_PORT:-5341}:5341"
+    networks:
+      - edutrack

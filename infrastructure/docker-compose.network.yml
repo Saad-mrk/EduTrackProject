@@ -1,0 +1,6 @@
+name: edutrack
+
+networks:
+  edutrack:
+    name: edutrack
+    driver: bridge

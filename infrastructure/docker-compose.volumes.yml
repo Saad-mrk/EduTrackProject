@@ -1,0 +1,11 @@
+name: edutrack
+
+volumes:
+  postgres_data:
+    name: edutrack_postgres_data
+  prometheus_data:
+    name: edutrack_prometheus_data
+  grafana_data:
+    name: edutrack_grafana_data
+  seq_data:
+    name: edutrack_seq_data

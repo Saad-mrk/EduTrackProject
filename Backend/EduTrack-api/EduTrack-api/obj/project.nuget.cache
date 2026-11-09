@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "UFmteP/ph0o=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\USER\\Desktop\\DEVops\\Backend\\EduTrack-api\\EduTrack-api\\EduTrack-api.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\USER\\.nuget\\packages\\microsoft.aspnetcore.openapi\\9.0.22\\microsoft.aspnetcore.openapi.9.0.22.nupkg.sha512",
+    "C:\\Users\\USER\\.nuget\\packages\\microsoft.openapi\\1.6.31\\microsoft.openapi.1.6.31.nupkg.sha512",
+    "C:\\Users\\USER\\.nuget\\packages\\microsoft.visualstudio.azure.containers.tools.targets\\1.22.1\\microsoft.visualstudio.azure.containers.tools.targets.1.22.1.nupkg.sha512"
+  ],
+  "logs": []
+}
