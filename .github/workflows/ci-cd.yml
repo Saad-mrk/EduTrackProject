@@ -25,7 +25,7 @@ jobs:
     needs:
       - frontend
       - backend
-    if: github.event_name == 'push'
+    if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
     permissions:
       contents: read
       packages: write
