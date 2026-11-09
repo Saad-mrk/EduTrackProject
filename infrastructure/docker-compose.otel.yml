@@ -1,0 +1,20 @@
+name: edutrack
+
+services:
+  otel-collector:
+    image: otel/opentelemetry-collector-contrib:latest
+    container_name: edutrack-otel-collector
+    restart: unless-stopped
+    command:
+      - --config=/etc/otelcol-contrib/config.yml
+    volumes:
+      - ./observability/otel/otel-collector-config.yml:/etc/otelcol-contrib/config.yml:ro
+    ports:
+      - "${OTEL_GRPC_PORT:-4317}:4317"
+      - "${OTEL_HTTP_PORT:-4318}:4318"
+      - "${OTEL_METRICS_PORT:-8889}:8889"
+    depends_on:
+      - seq
+      - prometheus
+    networks:
+      - edutrack

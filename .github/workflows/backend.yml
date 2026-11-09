@@ -1,0 +1,28 @@
+name: Backend checks
+
+on:
+  workflow_call:
+
+permissions:
+  contents: read
+
+jobs:
+  backend:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 9.0.x
+
+      - name: Restore
+        run: dotnet restore Backend/EduTrack-api/EduTrack-api.sln
+
+      - name: Build
+        run: dotnet build Backend/EduTrack-api/EduTrack-api.sln --configuration Release --no-restore
+
+      - name: Test
+        run: dotnet test Backend/EduTrack-api/EduTrack-api.sln --configuration Release --no-build --verbosity normal

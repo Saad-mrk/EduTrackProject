@@ -1,0 +1,16 @@
+name: Publish Docker images
+
+on:
+  workflow_call:
+
+permissions:
+  contents: read
+  packages: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      # Déplacer ici les étapes Docker :
+      # checkout, Buildx, connexion GHCR,
+      # build/push du frontend et du backend.

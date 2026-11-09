@@ -1,0 +1,32 @@
+name: EduTrack CI/CD
+
+on:
+  push:
+    branches:
+      - develop
+    tags:
+      - "v*"
+  pull_request:
+    branches:
+      - develop
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  frontend:
+    uses: ./.github/workflows/frontend.yml
+
+  backend:
+    uses: ./.github/workflows/backend.yml
+
+  publish-images:
+    needs:
+      - frontend
+      - backend
+    if: github.event_name == 'push'
+    permissions:
+      contents: read
+      packages: write
+    uses: ./.github/workflows/publish-images.yml
