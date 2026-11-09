@@ -58,7 +58,7 @@ export interface DB {
 
 let seed = 42;
 const rnd = () => (seed = (seed * 16807) % 2147483647) / 2147483647;
-const pick = <T,>(a: T[]) => a[Math.floor(rnd() * a.length)];
+const pick = <T>(a: T[]) => a[Math.floor(rnd() * a.length)];
 
 const first = [
   "Youssef",
@@ -108,8 +108,20 @@ export function buildSeed(): DB {
     })),
   );
   const users: User[] = [
-    { id: "a1", name: "Rachid Admin", email: "admin@edutrack.com", role: "ADMIN", active: true },
-    { id: "t1", name: "Nadia Bennis", email: "teacher@edutrack.com", role: "TEACHER", active: true },
+    {
+      id: "a1",
+      name: "Rachid Admin",
+      email: "admin@edutrack.com",
+      role: "ADMIN",
+      active: true,
+    },
+    {
+      id: "t1",
+      name: "Nadia Bennis",
+      email: "teacher@edutrack.com",
+      role: "TEACHER",
+      active: true,
+    },
   ];
   ["a2", "a3", "a4"].forEach((id, i) =>
     users.push({
@@ -181,27 +193,25 @@ export function buildSeed(): DB {
   }));
   const grades: Grade[] = [];
   let g = 0;
-  users.filter((u) => u.role === "STUDENT").forEach((s) => {
-    subjects.slice(0, 4).forEach((m, j) => {
-      const types: EvalType[] = j < 2 ? ["DS", "Examen"] : ["DS"];
-      types.forEach((t) =>
-        grades.push({
-          id: `g${++g}`,
-          studentId: s.id,
-          subjectId: m.id,
-          type: t,
-          value: Math.round((6 + rnd() * 14) * 2) / 2,
-        }),
-      );
+  users
+    .filter((u) => u.role === "STUDENT")
+    .forEach((s) => {
+      subjects.slice(0, 4).forEach((m, j) => {
+        const types: EvalType[] = j < 2 ? ["DS", "Examen"] : ["DS"];
+        types.forEach((t) =>
+          grades.push({
+            id: `g${++g}`,
+            studentId: s.id,
+            subjectId: m.id,
+            type: t,
+            value: Math.round((6 + rnd() * 14) * 2) / 2,
+          }),
+        );
+      });
     });
   });
   const absences: Absence[] = [];
-  const statuses: AbsStatus[] = [
-    "justifiée",
-    "non justifiée",
-    "non justifiée",
-    "en attente",
-  ];
+  const statuses: AbsStatus[] = ["justifiée", "non justifiée", "non justifiée", "en attente"];
   for (let i = 1; i <= 150; i++) {
     const d = new Date(2026, 8 + Math.floor(rnd() * 2), 1 + Math.floor(rnd() * 28));
     absences.push({
