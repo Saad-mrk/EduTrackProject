@@ -7,6 +7,7 @@ services:
     restart: unless-stopped
     environment:
       ACCEPT_EULA: "Y"
+      SEQ_API_CANONICALURI: ${SEQ_CANONICAL_URI:-https://edutrack.live/seq/}
     volumes:
       - seq_data:/data
     ports:
