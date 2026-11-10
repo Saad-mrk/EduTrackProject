@@ -31,8 +31,8 @@ jobs:
           file: Backend/EduTrack-api/EduTrack-api/Dockerfile
           push: true
           tags: |
-            ghcr.io/${{ github.repository_owner }}/edutrack-backend:latest
-            ghcr.io/${{ github.repository_owner }}/edutrack-backend:${{ github.sha }}
+            ghcr.io/${{ toLower(github.repository_owner) }}/edutrack-backend:latest
+            ghcr.io/${{ toLower(github.repository_owner) }}/edutrack-backend:${{ github.sha }}
 
       - name: Publish frontend image
         uses: docker/build-push-action@v6
@@ -41,5 +41,5 @@ jobs:
           file: FrontEnd/Edu-Track/Dockerfile
           push: true
           tags: |
-            ghcr.io/${{ github.repository_owner }}/edutrack-frontend:latest
-            ghcr.io/${{ github.repository_owner }}/edutrack-frontend:${{ github.sha }}
+            ghcr.io/${{ toLower(github.repository_owner) }}/edutrack-frontend:latest
+            ghcr.io/${{ toLower(github.repository_owner) }}/edutrack-frontend:${{ github.sha }}
