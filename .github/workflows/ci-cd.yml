@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - develop
+      - main
     tags:
       - "v*"
   pull_request:
@@ -29,4 +30,4 @@ jobs:
     permissions:
       contents: read
       packages: write
-    uses: ./.github/workflows/publish-images.yml
+    uses: ./.github/workflows/docker-publish.yml
